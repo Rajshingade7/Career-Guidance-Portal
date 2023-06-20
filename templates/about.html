@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Career Guidance Portal</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{url_for('static', filename='img/favicon.png')}}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="{{url_for('home')}}" class="logo d-flex align-items-center">
+        <h1>Career<span>.</span>ly</h1>
+        </a>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a href="{{url_for('home')}}">Home</a></li>
+              <li><a href="{{url_for('about')}}" class="active">About</a></li>
+              <li><a href="{{url_for('services')}}">Services</a></li>
+              {%if session.loggedin %}
+              <li class="dropdown"><a href="#"><span>Test</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="{{url_for('test_1_detail')}}"><span>Test-1 for 8th to 10th Students</span></a></li>
+                  <li class="dropdown"><a href="{{url_for('test_2_detail')}}"><span>Test-2 for 11th and 12th Students</span></a></li>
+                </ul>
+              </li>
+              <li><a href="{{url_for('logout')}}">logout</a></li>
+              {% else %}
+              <li class="dropdown"><a href="#"><span>Sign In/Up</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="{{url_for('sign_in')}}"><span>Sign In</span></a></li>
+                  <li class="dropdown"><a href="{{url_for('sign_up')}}"><span>Sign Up</span></a></li>
+                </ul>
+              </li>
+              {% endif%}
+              <li><a href="{{url_for('contact')}}">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+    <main id="main">
+
+      <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('static/img/breadcrumbs-bg.jpg');">
+          <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <h2>About Career.ly</h2>
+              <ol>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li>About</li>
+              </ol>
+          </div>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Alt Services Section 2 ======= -->
+        <section id="alt-services-2" class="alt-services section-bg">
+          <div class="container" data-aos="fade-up">
+            <div class="row justify-content-around gy-4">
+              <div class="col-lg-10 d-flex flex-column justify-content-center">
+                <h3>Our Story</h3>
+                  <p>We all have gone through the same career phases where we felt the need of having a go-to person.
+                  <br><br>The stress, anxiety and confusion of what to do in life, what to do after 10th/ 12th; which college should we go and what career is best for us; and what not, helped us build a dream career. 🙏
+                  <br><br>A safe space where you can Build Your Dream Career ❤
+                  <br><br>What’s so unique about us is that unlike many other career & college guidance providers; our mission is to give you unbiased career advice. Guidance which connects you to the roots of why you like what you like; also bridging the gap and helping you foresee a career in it!</p>
+              </div>
+            </div>
+          </div>
+        </section><!-- End Alt Services Section 2 -->
+
+        <!-- ======= Stats Counter Section ======= -->
+        <section id="stats-counter" class="stats-counter section-bg">
+          <div class="container">
+            <div class="row gy-4">
+              <div class="col-lg-4 col-md-6">
+                <div class="stats-item d-flex align-items-center w-100 h-100">
+                  <i class="bi bi-person-square color-blue flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Student Empowered</p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-4 col-md-6">
+                <div class="stats-item d-flex align-items-center w-100 h-100">
+                  <i class="bi bi-house-fill color-orange flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>School Impacted</p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-4 col-md-6">
+                <div class="stats-item d-flex align-items-center w-100 h-100">
+                  <i class="bi bi-card-checklist color-green flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="1" class="purecounter"></span>
+                    <p>Test Given</p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+            </div>
+          </div>
+        </section><!-- End Stats Counter Section -->
+
+        <!-- ======= Our Team Section ======= -->
+        <section id="team" class="team">
+          <div class="container" data-aos="fade-up">
+            <div class="section-header">
+              <h2>Our Team</h2>
+            </div>
+            <div class="row gy-5">
+              <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="{{url_for('static', filename='img/team/team-1.jpg')}}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info text-center">
+                  <h4>Kaushal Pohekar</h4>
+                  <span>Front End Developer</span>
+                  <p>Final Year Student At Deogiri Institute of Engineering and management Studies, Aurangabad</p>
+                </div>
+              </div><!-- End Team Member -->
+              <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="{{url_for('static', filename='img/team/team-2.jpg')}}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info text-center">
+                  <h4>Raj Shingade</h4>
+                  <span>Back End Developer</span>
+                  <p>Final Year Student At Deogiri Institute of Engineering and management Studies, Aurangabad</p>
+                </div>
+              </div><!-- End Team Member -->
+              <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="{{url_for('static', filename='img/team/team-3.jpg')}}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info text-center">
+                  <h4>Ajit Wadikar</h4>
+                  <span>Database Developer</span>
+                  <p>Final Year Student At Deogiri Institute of Engineering and management Studies, Aurangabad</p>
+                </div>
+              </div><!-- End Team Member -->
+            </div>
+          </div>  
+        </section><!-- End Our Team Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+      <div class="footer-content position-relative">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-info">
+                <h3>Career.ly</h3>
+                <p>
+                  Deogiri Campus <br>
+                  431005, Aurangabad, India<br><br>
+                  <strong>Phone:</strong> +91 930-986-5924<br>
+                  <strong>Email:</strong> info@careerly.com<br>
+                </p>
+                <div class="social-links d-flex mt-3">
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div><!-- End footer info column-->
+            <div class="col-lg-2 col-md-3 footer-links"></div>
+            <div class="col-lg-2 col-md-3 footer-links"></div>
+
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('about')}}">About us</a></li>
+                <li><a href="{{url_for('services')}}">Services</a></li>
+                {%if session.loggedin %}
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% else %}
+                <li><a href="{{url_for('sign_in')}}">Sign In</a></li>
+                {% endif %}
+                <li><a href="{{url_for('contact')}}">Contact</a></li>
+              </ul>
+            </div><!-- End footer links column-->
+
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="#">Career Asssetment</a></li>
+                <li><a href="#">Course Information</a></li>
+                <li><a href="#">College Description</a></li>
+              </ul>
+            </div><!-- End footer links column-->
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-legal text-center position-relative">
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Career.ly</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <a href="{{url_for('home')}}">2022</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/aos/aos.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}assets/"></script>
+    <script src="{{url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/php-email-form/validate.js')}}"></script>
+    <!-- Template Main JS File -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+  </body>
+
+</html>

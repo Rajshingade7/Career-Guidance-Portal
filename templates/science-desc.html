@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Career Guidance Portal</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{url_for('static', filename='img/favicon.png')}}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+  </head>
+
+  <body>
+        <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="{{url_for('home')}}" class="logo d-flex align-items-center">
+        <h1>Career<span>.</span>ly</h1>
+        </a>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a href="{{url_for('home')}}" class="active">Home</a></li>
+              <li><a href="{{url_for('about')}}">About</a></li>
+              <li><a href="{{url_for('services')}}">Services</a></li>
+              {%if session.loggedin %}
+              <li class="dropdown"><a href="#"><span>Test</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="{{url_for('test_1_detail')}}"><span>Test-1 for 8th to 10th Students</span></a></li>
+                  <li class="dropdown"><a href="{{url_for('test_2_detail')}}"><span>Test-2 for 11th and 12th Students</span></a></li>
+                </ul>
+              </li>
+              <li><a href="{{url_for('logout')}}">logout</a></li>
+              {% else %}
+              <li class="dropdown"><a href="#"><span>Sign In/Up</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="{{url_for('sign_in')}}"><span>Sign In</span></a></li>
+                  <li class="dropdown"><a href="{{url_for('sign_up')}}"><span>Sign Up</span></a></li>
+                </ul>
+              </li>
+              {% endif%}
+              <li><a href="{{url_for('contact')}}">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+    <main id="main">
+
+      <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('static/img/breadcrumbs-bg.jpg');">
+          <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <h2>Services We Provide</h2>
+              <ol>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li>Services</li>
+              </ol>
+          </div>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Servie Cards Section ======= -->
+        <section id="services-cards" class="services-cards">
+          <div class="container" data-aos="fade-up">
+            <div class="row gy-4">
+              <div class="col-lg-8 col-md-8" data-aos="zoom-in" data-aos-delay="400">
+                <h3 class="text-center"> Why to Choose Science Stream?</h3>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check2"></i> It is true that an average student runs away from science, but science is a very fun subject when you start taking interest. It allows you to be much smarter, intelligent and progressive.<span></span></li>
+                  <li><i class="bi bi-check2"></i><span>When you study subjects like Physics & Chemistry, it enhances your understanding of the world, causes, effects, etc. It allows you to develop scientific knowledge and theory about everything in the world that you come across.</span></li>
+                  <li><i class="bi bi-check2"></i><span> Science leads to progressive and remarkable developments. It has helped people find the cure to so many diseases, raise awareness, and has created infinite possibilities for us.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Science teaches you so much variety of work that you will never get bored. From the human body to space and universe, you will get ample opportunity to learn many things.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Science is all about discovery and creative thinking. It helps broaden your understanding and appreciation of the world around you, equips you with excellent problem-solving abilities and a whole host of extremely transferable skills.</span></li>
+                  <li><i class="bi bi-check2"></i><span>There’s the excitement that comes from discovering new things, and being on the cutting edge of knowledge. Just think how cool it is when you are responsible for discovering something new, that no one in the history of the world has ever known before. Choosing science is not only a greatest opportunity for contributing for tomorrow but also a chance to show hope for mankind.</span></li>
+                  <li><i class="bi bi-check2"></i><span>The contribution of science is vital to ensure the survival of our planet by developing new or alternative solutions for everything we do from waste disposal to fuel production. With things like gene therapy, MMR vaccines, nuclear power, oil depletion, genetically modified foods, bird flu and global warming, future scientists have a fascinating and crucial role to play.</span></li>
+                  <li><i class="bi bi-check2"></i><span> Science and Mathematics provide students with highly relevant skills that are applicable to almost any workplace. They offer a flexible foundation enabling students to attain highly respected and well paid jobs and guarantee them a secure future.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Engineering (IITs, NITs, BITS), Medical (AIIMS, MAMC) or Basic Sciences (IISc), there are world class institutes in India where you can pursue higher education.</span></li>
+                </ul>
+              </div><!-- End feature item-->
+              <div class=" col-lg-4 col-md-4 constructions" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card-item">
+                <div class="row">
+                  <div class="col-xl-12 d-flex align-items-center">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-xl-12 d-flex align-items-center">
+                          <h4 class="card-title">Select Location</h4>
+                        </div>
+                        <div class="col-xl-12 d-flex align-items-center">
+                            <p>Select State</p>
+                        </div>
+                        <div class="col-xl-12 d-flex align-items-center">
+                          <select class="form-control" id="inputState">
+                            <option value="SelectState">Select State</option>
+                            <option value="Andra Pradesh">Andra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madya Pradesh">Madya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Orissa">Orissa</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttaranchal">Uttaranchal</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadeep">Lakshadeep</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xl-12 d-flex align-items-center">
+                        <label for="inputDistrict">District</label>
+                      </div>
+                      <div class="col-xl-12 d-flex align-items-center">
+                        <select class="form-control" id="inputDistrict">
+                          <option value="">-- select one -- </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section><!-- End Servie Cards Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+      <div class="footer-content position-relative">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-info">
+                <h3>Career.ly</h3>
+                <p>
+                  Deogiri Campus <br>
+                  431005, Aurangabad, India<br><br>
+                  <strong>Phone:</strong> +91 930-986-5924<br>
+                  <strong>Email:</strong> info@careerly.com<br>
+                </p>
+                <div class="social-links d-flex mt-3">
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-twitter"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-facebook"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                  <a href="#" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div><!-- End footer info column-->
+            <div class="col-lg-2 col-md-3 footer-links"></div>
+            <div class="col-lg-2 col-md-3 footer-links"></div>
+
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('about')}}">About us</a></li>
+                <li><a href="{{url_for('services')}}">Services</a></li>
+                {%if session.loggedin %}
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% else %}
+                <li><a href="{{url_for('sign_in')}}">Sign In</a></li>
+                {% endif %}
+                <li><a href="{{url_for('contact')}}">Contact</a></li>
+              </ul>
+            </div><!-- End footer links column-->
+
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="#">Career Asssetment</a></li>
+                <li><a href="#">Course Information</a></li>
+                <li><a href="#">College Description</a></li>
+              </ul>
+            </div><!-- End footer links column-->
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-legal text-center position-relative">
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Career.ly</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <a href="{{url_for('home')}}">2022</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/aos/aos.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}assets/"></script>
+    <script src="{{url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/php-email-form/validate.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!-- Template Main JS File -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script src="{{url_for('static', filename='js/select.js')}}"></script>
+  </body>
+
+</html>

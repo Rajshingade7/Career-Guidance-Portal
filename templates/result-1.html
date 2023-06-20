@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Career Guidance Portal</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{url_for('static', filename='img/favicon.png')}}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/rangeslider.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/range.scss')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/chart.css')}}" rel="stylesheet">
+  </head>
+
+  <body>
+     <!-- ======= Header ======= -->
+     <header id="header" class="header d-flex align-items-center">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="{{url_for('home')}}" class="logo d-flex align-items-center">
+        <h1>Career<span>.</span>ly</h1>
+        </a>
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a href="{{url_for('home')}}" class="active">Home</a></li>
+              <li><a href="{{url_for('about')}}">About</a></li>
+              <li><a href="{{url_for('services')}}">Services</a></li> 
+              <li class="dropdown"><a href="#"><span>Test</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li class="dropdown"><a href="{{url_for('test_1_detail')}}"><span>Test-1 for 8th to 10th Students</span></a></li>
+                  <li class="dropdown"><a href="{{url_for('test_2_detail')}}"><span>Test-2 for 11th and 12th Students</span></a></li>
+                </ul>
+              </li>
+              <li><a href="{{url_for('logout')}}">logout</a></li>
+              <li><a href="{{url_for('contact')}}">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+    <main id="main">
+
+      <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs d-flex align-items-center" style="background-image: url('static/img/breadcrumbs-bg.jpg');">
+          <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <h2>Career Assestment </h2>
+              <ol>
+                <li><a href="home.php">Home</a></li>
+                <li>Test Detail</li>
+              </ol>
+          </div>
+        </div><!-- End Breadcrumbs -->
+    </main><!-- End #main -->
+
+    <section class="container contact">
+      <div class="row info-item">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+          <h1>Hey! The top job roles that matched your skills.....</h1>
+          <div class="graph-cont">
+            <h1>You can be a great:</h1>
+            {%if job==science%}
+            <div class="bar bar1" ><a href="#science"><font color="black">{{ job }}</a></font></div>
+            {%elif job==art%}
+            <div class="bar bar1" ><a href="#art"><font color="black">{{ job }}</a></font></div>
+            {%elif job==commerce%}
+            <div class="bar bar1" ><a href="#commerce"><font color="black">{{ job }}</a></font></div>
+            {%elif job==tech%}
+            <div class="bar bar1" ><a href="#tech"><font color="black">{{ job }}</a></font></div>
+            {%endif%}
+            {%for key, value in final_res.items(): %}
+              {%if job!=job_dict[value]%}
+                <div class="bar bar2"><a href="#" style="text-decoration: none;"><font color="black">{{job_dict[value]}}</a></font></div>
+              {%endif%}
+            {%endfor%}
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+    </section>
+    <!-- ======= Servie Cards Section ======= -->
+    {%for key, value in final_res.items(): %}
+      {%if science==job_dict[value]%}
+        <section id="science" class="services-cards contact">
+          <div class="container" data-aos="fade-up">
+            <div class="row gy-4">
+              <div class="col-lg-12 col-md-12" data-aos="zoom-in" data-aos-delay="400">
+                <h3 class="text-center info-item"> Why to Choose Science Stream?</h3>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check2"></i> <span>It is true that an average student runs away from science, but science is a very fun subject when you start taking interest. It allows you to be much smarter, intelligent and progressive.</span></li>
+                  <li><i class="bi bi-check2"></i><span>When you study subjects like Physics & Chemistry, it enhances your understanding of the world, causes, effects, etc. It allows you to develop scientific knowledge and theory about everything in the world that you come across.</span></li>
+                  <li><i class="bi bi-check2"></i><span> Science leads to progressive and remarkable developments. It has helped people find the cure to so many diseases, raise awareness, and has created infinite possibilities for us.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Science teaches you so much variety of work that you will never get bored. From the human body to space and universe, you will get ample opportunity to learn many things.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Science is all about discovery and creative thinking. It helps broaden your understanding and appreciation of the world around you, equips you with excellent problem-solving abilities and a whole host of extremely transferable skills.</span></li>
+                  <li><i class="bi bi-check2"></i><span>There’s the excitement that comes from discovering new things, and being on the cutting edge of knowledge. Just think how cool it is when you are responsible for discovering something new, that no one in the history of the world has ever known before. Choosing science is not only a greatest opportunity for contributing for tomorrow but also a chance to show hope for mankind.</span></li>
+                  <li><i class="bi bi-check2"></i><span>The contribution of science is vital to ensure the survival of our planet by developing new or alternative solutions for everything we do from waste disposal to fuel production. With things like gene therapy, MMR vaccines, nuclear power, oil depletion, genetically modified foods, bird flu and global warming, future scientists have a fascinating and crucial role to play.</span></li>
+                  <li><i class="bi bi-check2"></i><span> Science and Mathematics provide students with highly relevant skills that are applicable to almost any workplace. They offer a flexible foundation enabling students to attain highly respected and well paid jobs and guarantee them a secure future.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Engineering (IITs, NITs, BITS), Medical (AIIMS, MAMC) or Basic Sciences (IISc), there are world class institutes in India where you can pursue higher education.</span></li>
+                </ul>
+              </div>
+              <div class=" col-lg-4 col-md-12 constructions" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card-item">
+                <div class="row">
+                  <div class="col-xl-4 d-flex align-items-center">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-xl-12 d-flex align-items-center">
+                          <h4 class="card-title">Select Location</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+        </section><!-- End Servie Cards Section -->
+      {%elif commerce==job_dict[value]%}
+        <section id="commerce" class="services-cards contact">
+          <div class="container" data-aos="fade-up">
+            <div class="row gy-4">
+              <div class="col-lg-12 col-md-12" data-aos="zoom-in" data-aos-delay="400">
+                <h3 class="text-center info-item"> Why to Choose Commerce Stream</h3>
+                <p><strong>Commerce</strong> is one of the popular streams that a student choose after completing their Class 10th board exam. Commerce streams offer students a wide range of career options after completing Class 12th, that will give them a sense of financial security and make them successful.</p>
+                <p>However, most of the students don’t acknowledge Commerce subject like science, a student needs to have a clear direction towards Commerce subject and become successful. Few students can have a positive and suited career in Humanities/Commerce stream but might find it difficult to perform and achieve well in Commerce.</p>
+              </p>
+                <p><strong>What is Commerce?</strong><br> - a medium of instruction can be interpreted as a study of business and marketing activities such as the exchange of commodities and services from the manufacturer to the final customer. The principal subjects that are taught in the Commerce stream for CBSE Class 11 and 12 comprise of – Accountancy, Business Studies, and Economics. Students can choose this field if they have a real interest in these subjects and have an association for the economy, business, and numbers.</p>
+                <p>Below is a list of some incredible subjects that the commerce students can avail of and get a bright and energetic future for sure-</p>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check2"></i><span>Informatics Practices or Mathematics</span></li>
+                  <li><i class="bi bi-check2"></i><span>Business Studies</span></li>
+                  <li><i class="bi bi-check2"></i><span>English</span></li>
+                  <li><i class="bi bi-check2"></i><span>Accountancy</span></li>
+                  <li><i class="bi bi-check2"></i><span>Physical Education</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      {%elif art==job_dict[value]%}
+        <section id="art" class="services-cards contact">
+          <div class="container" data-aos="fade-up">
+            <div class="row gy-4info-item">
+              <div class="col-lg-12 col-md-12" data-aos="zoom-in" data-aos-delay="400">
+                <h3 class="text-center info-item"> Why to Choose Art Stream</h3>
+                <p>‘Art is long and life is short’ this phrase explains that arts have the potential to stay longer than human lives. The arts performed will breathe even after the ages and it has the power of trapping a person with its unique and colorful elements. All the seven forms of arts that are music, cinema, painting, dance, sculpture, and literature have their own way of learning, presenting and experiencing them. Every individual has one or the other fascination towards arts and learning at least one artist in their lifetime but, it is a well known universal fact that most of us do not choose arts as a career. Why do students give a pause when they are asked about taking art education as a career? Though all of us are well aware of the immense scope and opportunities it has in the present time.
+                <p>Art is a field of creativity and innovation that makes our mind active and provokes our thought process to search for a different and unique solution or any form of skill or talent that satisfies our mind and heart. Reasons for Art Education is as follows –</p>
+                </p>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check2"></i><span></span>Art always helps individuals in finding a new viewpoint and improves problem-solving and creative skills.</span></li>
+                  <li><i class="bi bi-check2"></i><span>Every art has its own culture of connecting people with different thinking dimensions and background.</span></li>
+                  <li><i class="bi bi-check2"></i><span>It inculcates patience level when students face challenges at different points they learn to remain calm and find a way to resolve them.</span></li>
+                  <li><i class="bi bi-check2"></i><span></span>It offers a wide range of career opportunities to the students depending on their abilities.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      {%elif tech==job_dict[value]%}
+        <section id="tech" class="services-cards contact">
+          <div class="container" data-aos="fade-up">
+            <div class="row gy-4">
+              <div class="col-lg-12 col-md-12" data-aos="zoom-in" data-aos-delay="400">
+                <h3 class="text-center info-item"> Why to Choose Technical Stream</h3>
+                <p><strong>Technical Diploma - </strong>gives you the opportunity to understand the skills you need while allowing you to put these skills into practice. This will enable you to jump straight into the workforce with all the necessary knowledge and capabilities.</p>
+                <p><strong>Job Satisfaction - </strong>It’s important to find a career that you enjoy. After all, you’ll probably be spending eight hours or more a day, five days a week, at your job. Engineering can provide a satisfying field of work.</p>
+                </p>
+                <p><strong>Variety of Career Opportunities - </strong>From electrical and computer engineering to environmental and biomedical engineering, an engineering degree offers a wide range of career possibilities. But the majority of today’s college graduates will have more than one career during their work life, and engineering can provide a strong foundation for almost any one of them.</p>
+                <p><strong>Potential to Benefit Society –</strong> an engineer, you can choose to work on projects that benefit society, such as cleaning up the environment, developing prosthetic aids for disabled persons, developing clean and efficient transportation systems, finding new sources of energy, alleviating the world’s hunger problems, and increasing the standard of living in underdeveloped countries.</p>
+                <p><strong>Challenging Work – </strong>There is no shortage of challenging problems in engineering. There is no single answer, no answer in the back of the book, no professor to tell you that you are right or wrong. You must devise a solution and persuade others that your solution is the best one.</p>
+                <p><strong>Intellectual Development– </strong>An engineering education will “exercise” your brain, developing your ability to think logically and to solve problems. These are skills that will be valuable throughout your life – and not only when you are solving engineering problems.</p>
+                <p><strong>Creative Thinking -</strong> Engineering is by its very nature a creative profession. Because we are in a time of rapid social and technological changes, the need for engineers to think creatively is greater now than ever before. If you like to question, explore, invent, discover, and create, then engineering could be the ideal profession for you.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      {%endif%}
+    {%endfor%}
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="footer-legal text-center position-relative">
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Career.ly</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <a href="{{url_for('home')}}">2022</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/aos/aos.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/glightbox/js/glightbox.min.js')}}assets/"></script>
+    <script src="{{url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/php-email-form/validate.js')}}"></script>
+    <!-- Template Main JS File -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script src="{{url_for('static', filename='js/range.js')}}"></script>
+    <script src="{{url_for('static', filename='js/rangeslider.js')}}"></script>
+    <script src="{{url_for('static', filename='js/rangeslider.min.js')}}"></script>
+  </body>
+
+</html>
